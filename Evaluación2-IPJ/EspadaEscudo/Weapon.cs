@@ -13,5 +13,7 @@ abstract class Weapon
         this.attack = attack;
     }
     public abstract float GetAttackDamage(AttackType attackType, ref bool isCrit);
+
+    public abstract float GetCritRate();
 }
 

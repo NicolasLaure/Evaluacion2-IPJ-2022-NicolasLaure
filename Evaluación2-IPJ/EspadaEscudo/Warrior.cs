@@ -9,12 +9,15 @@ class Warrior
     private Armor armor;
     private float maxHealth;
     private float currentHealth;
+    int warriorCount;
 
-    public Warrior(string name, float maxHealth)
+
+    public Warrior(string name, float maxHealth, int warriorCount)
     {
         this.name = name;
         this.maxHealth = maxHealth;
         currentHealth = maxHealth;
+        this.warriorCount = warriorCount;
     }
 
     public void SetWeapon(Weapon weapon)
@@ -40,7 +43,7 @@ class Warrior
     }
     public float Attack(Warrior warrior, AttackType attackType, ref bool isCrit)
     {
-        return warrior.ReceiveDamage(warrior.weapon.GetAttackDamage(attackType, ref isCrit));
+        return weapon.GetAttackDamage(attackType, ref isCrit);
     }
     public bool isAlive()
     {
@@ -48,5 +51,13 @@ class Warrior
             return false;
         else
             return true;
+    }
+    public Weapon GetWeapon()
+    {
+        return weapon;
+    }
+    public Armor GetArmor()
+    {
+        return armor;
     }
 }

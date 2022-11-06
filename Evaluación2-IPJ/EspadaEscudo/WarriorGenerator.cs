@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-class WarriorGenerator
+static class WarriorGenerator
 {
-    void CreateWarrior()
+
+    public static Warrior CreateWarrior()
     {
         string name;
         Weapon weapon = null;
         Armor armor;
         string weaponName;
         float weaponDmg;
+        int warriorCount = 0;
 
         Console.WriteLine("Elija el nombre que quiere ponerle al nuevo guerrero: ");
         name = Console.ReadLine();
@@ -60,9 +62,11 @@ class WarriorGenerator
         float armorWeight = armorDefense * 0.35f;
         armor = new Armor(armorName, armorDefense, armorWeight);
 
-        Warrior warrior = new Warrior(name, 100);
+        Warrior warrior = new Warrior(name, 100, warriorCount);
         warrior.SetWeapon(weapon);
         warrior.SetArmor(armor);
-
+        warriorCount++;
+        return warrior;
     }
+    
 }

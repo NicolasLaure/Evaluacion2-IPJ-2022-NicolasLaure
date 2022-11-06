@@ -14,10 +14,18 @@ class Armor
         this.defense = defense;
         this.weight = weight;
     }
-
-    float MitigateDamage(float damage)
+    float mitigatedDmg;
+    public float MitigateDamage(float damage)
     {
-        float mitigatedDmg = 0.0f;
+        mitigatedDmg = damage * (defense / 100);
+        if (damage - mitigatedDmg > 0)
+            return damage - mitigatedDmg;
+        else
+            return 0f;
+    }
+
+    public float GetMitigatedDmg()
+    {
         return mitigatedDmg;
     }
 }
