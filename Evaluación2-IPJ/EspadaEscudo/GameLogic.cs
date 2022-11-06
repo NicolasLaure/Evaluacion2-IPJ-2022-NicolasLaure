@@ -27,6 +27,11 @@ class GameLogic
             turn = true;
             roundNumber++;
         }
+
+        if (p1.isAlive())
+            Console.WriteLine("Felicidades Jugador 1: Ganaste el combate!");
+        else
+            Console.WriteLine("Felicidades Jugador 2: Ganaste el combate!");
     }
     public void Attack(bool attackTurn)
     {
