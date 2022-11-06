@@ -17,11 +17,9 @@ class Armor
     float mitigatedDmg;
     public float MitigateDamage(float damage)
     {
-        mitigatedDmg = damage * (defense / 100);
-        if (damage - mitigatedDmg > 0)
-            return damage - mitigatedDmg;
-        else
-            return 0f;
+        //mitigatedDmg = damage * (defense / 100);
+        mitigatedDmg = Math.Clamp(damage * (defense / 100), 0, damage * 80 / 100);
+        return damage - mitigatedDmg;
     }
 
     public float GetMitigatedDmg()
